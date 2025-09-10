@@ -1,4 +1,15 @@
 @font-face {
+  font-family: 'Switzer-Light';
+  src: url('../assets/Switzer-Light.woff2') format('woff2'),
+       url('../assets/Switzer-Light.woff') format('woff'),
+       url('../assets/Switzer-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
   font-family: 'Switzer-Regular';
   src: url('../assets/Switzer-Regular.woff2') format('woff2'),
        url('../assets/Switzer-Regular.woff') format('woff'),
@@ -38,15 +49,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Switzer-Light';
-  src: url('../assets/Switzer-Light.woff2') format('woff2'),
-       url('../assets/Switzer-Light.woff') format('woff'),
-       url('../assets/Switzer-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
 
 
 *{margin: 0px; padding: 0px; box-sizing: border-box;}
