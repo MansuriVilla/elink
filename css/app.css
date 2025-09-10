@@ -1,55 +1,37 @@
-@font-face {
-  font-family: 'Switzer-Light';
-  src: url('../assets/Switzer-Light.woff2') format('woff2'),
+@font-face { font-family: 'Switzer-Light'; src: url('../assets/Switzer-Light.woff2') format('woff2'),
        url('../assets/Switzer-Light.woff') format('woff'),
-       url('../assets/Switzer-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'Switzer-Regular';
-  src: url('../assets/Switzer-Regular.woff2') format('woff2'),
+       url('../assets/Switzer-Light.ttf') format('truetype'); font-weight: 300; font-display: swap; font-style: normal; }
+@font-face { font-family: 'Switzer-Regular'; src: url('../assets/Switzer-Regular.woff2') format('woff2'),
        url('../assets/Switzer-Regular.woff') format('woff'),
-       url('../assets/Switzer-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Switzer-Medium';
-  src: url('../assets/Switzer-Medium.woff2') format('woff2'),
+       url('../assets/Switzer-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; font-style: normal; }
+@font-face { font-family: 'Switzer-Medium'; src: url('../assets/Switzer-Medium.woff2') format('woff2'),
        url('../assets/Switzer-Medium.woff') format('woff'),
-       url('../assets/Switzer-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Switzer-Semibold';
-  src: url('../assets/Switzer-Semibold.woff2') format('woff2'),
+       url('../assets/Switzer-Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; font-style: normal; }
+@font-face { font-family: 'Switzer-Semibold'; src: url('../assets/Switzer-Semibold.woff2') format('woff2'),
        url('../assets/Switzer-Semibold.woff') format('woff'),
-       url('../assets/Switzer-Semibold.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Switzer-Bold';
-  src: url('../assets/Switzer-Bold.woff2') format('woff2'),
+       url('../assets/Switzer-Semibold.ttf') format('truetype'); font-weight: 600; font-display: swap; font-style: normal; }
+@font-face { font-family: 'Switzer-Bold'; src: url('../assets/Switzer-Bold.woff2') format('woff2'),
        url('../assets/Switzer-Bold.woff') format('woff'),
-       url('../assets/Switzer-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
+       url('../assets/Switzer-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; font-style: normal; }
 
 
 
-*{margin: 0px; padding: 0px; box-sizing: border-box;}
-body{background-color: #000; font-family: 'Switzer-Regular'; color: #fff;}
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+body { background-color: #000; font-family: 'Switzer-Regular'; color: #fff; }
+img,video,picture { max-width: 100%; height: auto; display: flex; }
+
+
+/*---------------------------
+  Hero Block Styles
+  ----------------*/
+
+  .elink-entreprenuer__container { max-width: 440px; width: 100%; margin: 0 auto; padding: 0 20px; }
+  .entreprenuer-block__hero { position: relative; }
+  .hero-floating__content { position: absolute; bottom: 0; width: 100%; }
+  .floating-content__inner { padding: 16px; }
+  .floating-content__bottom { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border-radius: 24px; padding: 24px 32px 16px 16px; }
+  .bottom-content__left { display: flex; }
+  .profile_details { display: flex; align-items: center; }
+  .profile-image { border-radius: 50px; overflow: hidden; height: 24px; width: 24px; }
+  .profile-name { font-size: 16px; }
+  .profile-role { font-size: 10px; color: #FFFFFF60; }
