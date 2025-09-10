@@ -1,2 +1,53 @@
+@font-face {
+  font-family: 'Switzer-Regular';
+  src: url('../assets/Switzer-Regular.woff2') format('woff2'),
+       url('../assets/Switzer-Regular.woff') format('woff'),
+       url('../assets/Switzer-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Switzer-Medium';
+  src: url('../assets/Switzer-Medium.woff2') format('woff2'),
+       url('../assets/Switzer-Medium.woff') format('woff'),
+       url('../assets/Switzer-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Switzer-Semibold';
+  src: url('../assets/Switzer-Semibold.woff2') format('woff2'),
+       url('../assets/Switzer-Semibold.woff') format('woff'),
+       url('../assets/Switzer-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Switzer-Bold';
+  src: url('../assets/Switzer-Bold.woff2') format('woff2'),
+       url('../assets/Switzer-Bold.woff') format('woff'),
+       url('../assets/Switzer-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Switzer-Light';
+  src: url('../assets/Switzer-Light.woff2') format('woff2'),
+       url('../assets/Switzer-Light.woff') format('woff'),
+       url('../assets/Switzer-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+
 *{margin: 0px; padding: 0px; box-sizing: border-box;}
-body{background-color: #000; color: #fff;}
+body{background-color: #000; font-family: 'Switzer-Regular'; color: #fff;}
