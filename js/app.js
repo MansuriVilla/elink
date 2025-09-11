@@ -1,20 +1,16 @@
-
 const lenis = new Lenis();
-lenis.on('scroll', ScrollTrigger.update);
+lenis.on("scroll", ScrollTrigger.update);
 gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
 gsap.ticker.lagSmoothing(0);
 
-
- 
-document.addEventListener("DOMContentLoaded", function() {
-
+document.addEventListener("DOMContentLoaded", function () {
   function handleVideoPreview() {
     const videoPreviews = document.querySelectorAll(".video-preview");
     const startTime = 0;
     const endTime = 5;
- 
+
     videoPreviews.forEach((preview, index) => {
       // Select all required elements
       const previewVideo = preview.querySelector(".preview-video");
@@ -30,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         `dialog-close__btn-${index + 1}`
       );
       const loader = document.getElementById(`loader-${index + 1}`);
- 
+
       // Validate all required elements exist
       if (
         !previewVideo ||
@@ -52,12 +48,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         return; // Skip this iteration
       }
- 
+
       // Get video URL and determine if it's an iframe (Vimeo/YouTube)
       const videoUrl = preview.dataset.videoUrl;
       const isIframe =
         videoUrl.includes("vimeo.com") || videoUrl.includes("youtube.com");
- 
+
       // Set preview and full video sources
       if (isIframe) {
         previewVideo.src = videoUrl;
@@ -66,13 +62,13 @@ document.addEventListener("DOMContentLoaded", function() {
         previewVideo.src = videoUrl;
         fullVideo.src = videoUrl;
       }
- 
+
       // Function to hide loader
       const hideLoader = () => {
         loader.style.display = "none";
         preview.classList.add("dialog-video__loading");
       };
- 
+
       // Handle preview video/iframe playback
       if (isIframe && videoUrl.includes("vimeo.com")) {
         const player = new Vimeo.Player(previewVideo);
@@ -130,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
           hideLoader();
         });
       }
- 
+
       // Open popup and play full video
       playButton.addEventListener("click", () => {
         if (isIframe && videoUrl.includes("vimeo.com")) {
@@ -185,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
           });
         }
       });
- 
+
       // Close popup and handle video/iframe behavior
       closeButton.addEventListener("click", () => {
         gsap.to(popupContent, {
@@ -227,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
           },
         });
       });
- 
+
       // Close popup on ESC key
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && videoPopup.style.display !== "none") {
@@ -236,25 +232,22 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   }
- 
+
   handleVideoPreview();
- 
-
-
 
   function animateStaggeredSections() {
-    const containers = document.querySelectorAll('[data-stagger-container]');
+    const containers = document.querySelectorAll("[data-stagger-container]");
 
     containers.forEach((container) => {
       gsap.from(container.children, {
         opacity: 0,
         y: 20,
         stagger: 0.08,
-        ease: 'power2.out',
+        ease: "power2.out",
         scrollTrigger: {
           trigger: container,
-          start: 'top 95%',
-          toggleActions: 'play none none none',
+          start: "top 95%",
+          toggleActions: "play none none none",
           markers: false,
         },
       });
@@ -262,95 +255,98 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   animateStaggeredSections();
 
+
 function animateHeroProfile() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const floatingBottom = document.querySelector('.floating-content__bottom');
-  const bottomInner = document.querySelector('.bottom__inner');
-  const bottomTop = document.querySelector('.bottom_top');
-  const contactCtas = document.querySelector('.contact-ctas');
-  const contactCtasLinks = document.querySelectorAll('.contact-ctas a');
+  const floatingBottom = document.querySelector(".floating-content__bottom");
+  const bottomInner = document.querySelector(".bottom__inner");
+  const bottomTop = document.querySelector(".bottom_top");
+  const contactCtas = document.querySelector(".contact-ctas");
+  const contactCtasLinks = document.querySelectorAll(".contact-ctas a");
 
   // Pin the element when it reaches the top
   ScrollTrigger.create({
     trigger: floatingBottom,
-    start: 'top 1%', 
-    end: '+=2000', 
-    pin: true, 
-    pinSpacing: false, 
+    start: "top 1%",
+    end: "+=2000",
+    pin: true,
+    pinSpacing: false,
     onEnter: () => {
-      
-      floatingBottom.classList.add('sticky-active');
+      floatingBottom.classList.add("sticky-active");
 
-      
       const tl = gsap.timeline();
       tl.to(contactCtasLinks, {
-        y: 20, 
-        scale: 0, 
-        opacity: 0, 
-        duration: 0.3,
-        stagger: {
-          each: 0.05, 
-          from: 'end', 
-        },
-        ease: 'power2.in',
-      }).to(contactCtas, {
-        height: 0, 
-        padding: 0, 
-        margin: 0, 
-        duration: 0.3,
-        ease: 'power2.out',
-        onComplete: () => {
-          
-          contactCtas.style.display = 'none'; 
-          setTimeout(() => {
-            contactCtas.style.display = ''; 
-          }, 0);
-        },
-      }, '-=0.2'); 
-    },
-    onLeaveBack: () => {
-      
-      floatingBottom.classList.remove('sticky-active');
-
-      
-      const tl = gsap.timeline();
-      tl.to(contactCtas, {
-        height: 'auto', 
-        padding: 'initial', 
-        margin: 'initial', 
-        duration: 0.3,
-        ease: 'power2.out',
-        onStart: () => {
-          contactCtas.style.display = ''; 
-        },
-      }).to(contactCtasLinks, {
-        y: 0, 
-        scale: 1, 
-        opacity: 1, 
+        y: 20,
+        scale: 0,
+        opacity: 0,
         duration: 0.3,
         stagger: {
           each: 0.05,
-          from: 'end', 
+          from: "end",
         },
-        ease: 'power2.out',
-      }, '-=0.2'); 
+        ease: "power2.in",
+      }).to(
+        contactCtas,
+        {
+          height: 0,
+          padding: 0,
+          margin: 0,
+          duration: 0.3,
+          ease: "power2.out",
+          onComplete: () => {
+            contactCtas.style.display = "none";
+            setTimeout(() => {
+              contactCtas.style.display = "";
+            }, 0);
+          },
+        },
+        "-=0.2"
+      );
+    },
+    onLeaveBack: () => {
+      floatingBottom.classList.remove("sticky-active");
+
+      const tl = gsap.timeline();
+      tl.to(contactCtas, {
+        height: "auto",
+        padding: "initial",
+        margin: "initial",
+        duration: 0.3,
+        ease: "power2.out",
+        onStart: () => {
+          contactCtas.style.display = "";
+        },
+      }).to(
+        contactCtasLinks,
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 0.3,
+          stagger: {
+            each: 0.05,
+            from: "end",
+          },
+          ease: "power2.out",
+        },
+        "-=0.2"
+      );
     },
   });
 
-  
   gsap.fromTo(
     floatingBottom,
-    { opacity: 0, y: -20 }, 
+    { opacity: 0, y: -20 },
     {
       opacity: 1,
-      y: 0, 
+      y: 0,
       duration: 0.5,
-      ease: 'power2.out',
+      ease: "power2.out",
       scrollTrigger: {
         trigger: floatingBottom,
-        start: 'top 80%', 
-        toggleActions: 'play none none reverse', 
+        start: "top 80%",
+        toggleActions: "play none none reverse",
       },
     }
   );
@@ -358,66 +354,268 @@ function animateHeroProfile() {
 
 // Call the function
 animateHeroProfile();
-  /*-------------------------------
-    Parallex
-  -----------------*/
 
-  function parallexHero() {
-    const videoRefs = document.querySelectorAll(".has_parallex");
 
-    if (!videoRefs.length) {
-      console.warn("No elements found: .has_parallex");
-      return;
-    }
+function parallexHero() {
+  const videoRefs = document.querySelectorAll(".has_parallex");
 
-    const throttle = (func, limit) => {
-      let inThrottle;
-      return (...args) => {
-        if (!inThrottle) {
-          func.apply(this, args);
-          inThrottle = true;
-          setTimeout(() => (inThrottle = false), limit);
-        }
-      };
-    };
-
-    const handleScroll = throttle(() => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-
-      videoRefs.forEach((videoRef, index) => {
-        const rect = videoRef.getBoundingClientRect();
-        const elementTop = rect.top + scrollPosition;
-        const elementBottom = elementTop + rect.height;
-
-        const startScroll = elementTop - windowHeight * 0.5;
-        const endScroll = elementBottom - windowHeight * 0.1;
-
-        let progress =
-          (scrollPosition - startScroll) / (endScroll - startScroll);
-        progress = Math.max(0, Math.min(1, progress));
-
-        const translateY = progress * 100 * (index + 1);
-        videoRef.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${translateY}, 0, 1)`;
-      });
-    }, 1);
-
-    const handleResize = throttle(() => {
-      handleScroll();
-    }, 100);
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
+  if (!videoRefs.length) {
+    console.warn("No elements found: .has_parallex");
+    return;
   }
 
-  parallexHero();
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return (...args) => {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
+  };
+
+  const handleScroll = throttle(() => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+
+    videoRefs.forEach((videoRef, index) => {
+      const rect = videoRef.getBoundingClientRect();
+      const elementTop = rect.top + scrollPosition;
+      const elementBottom = elementTop + rect.height;
+
+      const startScroll = elementTop - windowHeight * 0.5;
+      const endScroll = elementBottom - windowHeight * 0.1;
+
+      let progress = (scrollPosition - startScroll) / (endScroll - startScroll);
+      progress = Math.max(0, Math.min(1, progress));
+
+      // Ensure initial translateY is 0 when at the top
+      const translateY = progress * 100 * (index + 1);
+      videoRef.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, ${translateY}, 0, 1)`;
+    });
+  }, 1);
+
+  const handleResize = throttle(() => {
+    handleScroll();
+  }, 100);
+
+  // Initialize all elements with translateY: 0 to avoid initial gap
+  videoRefs.forEach((videoRef) => {
+    videoRef.style.transform = `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)`;
+
+    // Add class when image/video is loaded
+    const media = videoRef.querySelector("img, video");
+    if (media) {
+      if (media.complete) {
+        videoRef.classList.add("parallax-loaded");
+      } else {
+        media.addEventListener("load", () => {
+          videoRef.classList.add("parallax-loaded");
+        });
+        media.addEventListener("error", () => {
+          videoRef.classList.add("parallax-loaded"); // Add class even if load fails
+        });
+      }
+    }
+  });
+
+  // Intersection Observer to add class when in view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("parallax-in-view");
+        } else {
+          entry.target.classList.remove("parallax-in-view");
+        }
+      });
+    },
+    {
+      root: null, // Use viewport as root
+      rootMargin: "0px", // No margin
+      threshold: 0.5, // Trigger when 50% of the element is visible
+    }
+  );
+
+  videoRefs.forEach((videoRef) => {
+    observer.observe(videoRef);
+  });
+
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleResize);
+
+  handleScroll();
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", handleResize);
+    observer.disconnect(); // Clean up observer
+  };
+}
+
+parallexHero();
 
 
+// function animateHeroProfile() {
+//   gsap.registerPlugin(ScrollTrigger);
+
+//   const floatingBottom = document.querySelector(".floating-content__bottom");
+//   const bottomInner = document.querySelector(".bottom__inner");
+//   const bottomTop = document.querySelector(".bottom_top");
+//   const contactCtasHide = document.querySelector(".contact-ctas.has_effect, .has_effect"); // Elements to hide
+//   const contactCtasLinksHide = document.querySelectorAll(
+//     ".contact-ctas.has_effect .has_effect_item, .has_effect .has_effect_item"
+//   );
+//   const contactCtasShow = document.querySelector(
+//     ".contact-ctas.on__header.has_effect_on-scroll, .on__header.has_effect_on-scroll"
+//   ); // Elements to show
+//   const contactCtasLinksShow = document.querySelectorAll(
+//     ".contact-ctas.on__header.has_effect_on-scroll .has_effect_item, .has_effect_on-scroll .has_effect_item"
+//   );
+
+//   ScrollTrigger.create({
+//     trigger: floatingBottom,
+//     start: "top 1%",
+//     end: "+=2000",
+//     pin: true,
+//     pinSpacing: false,
+//     onEnter: () => {
+//       floatingBottom.classList.add("sticky-active");
+
+//       const tl = gsap.timeline();
+//       // Hide the has_effect elements
+//       tl.to(contactCtasLinksHide, {
+//         y: 20,
+//         scale: 0,
+//         opacity: 0,
+//         duration: 0.3,
+//         stagger: {
+//           each: 0.05,
+//           from: "end",
+//         },
+//         ease: "power2.in",
+//       })
+//         .to(
+//           contactCtasHide,
+//           {
+//             opacity: 0,
+//             scale: 0,
+//             height: 0,
+//             padding: 0,
+//             margin: 0,
+//             duration: 0.3,
+//             ease: "power2.out",
+//           },
+//           "-=0.2"
+//         )
+//         // Show the has_effect_on-scroll elements
+//         .to(
+//           contactCtasLinksShow,
+//           {
+//             y: 0,
+//             scale: 1,
+//             opacity: 1,
+//             duration: 0.3,
+//             stagger: {
+//               each: 0.05,
+//               from: "end",
+//             },
+//             ease: "power2.out",
+//           },
+//           "-=0.1"
+//         )
+//         .to(
+//           contactCtasShow,
+//           {
+//             opacity: 1,
+//             scale: 1,
+//             height: "auto",
+//             padding: "initial",
+//             margin: "initial",
+//             duration: 0.3,
+//             ease: "power2.out",
+//           },
+//           "-=0.2"
+//         );
+//     },
+//     onLeaveBack: () => {
+//       floatingBottom.classList.remove("sticky-active");
+
+//       const tl = gsap.timeline();
+//       // Hide the has_effect_on-scroll elements
+//       tl.to(contactCtasLinksShow, {
+//         y: 20,
+//         scale: 0,
+//         opacity: 0,
+//         duration: 0.3,
+//         stagger: {
+//           each: 0.05,
+//           from: "end",
+//         },
+//         ease: "power2.in",
+//       })
+//         .to(
+//           contactCtasShow,
+//           {
+//             opacity: 0,
+//             scale: 0,
+//             height: 0,
+//             padding: 0,
+//             margin: 0,
+//             duration: 0.3,
+//             ease: "power2.out",
+//           },
+//           "-=0.2"
+//         )
+//         // Show the has_effect elements
+//         .to(
+//           contactCtasLinksHide,
+//           {
+//             y: 0,
+//             scale: 1,
+//             opacity: 1,
+//             duration: 0.3,
+//             stagger: {
+//               each: 0.05,
+//               from: "end",
+//             },
+//             ease: "power2.out",
+//           },
+//           "-=0.1"
+//         )
+//         .to(
+//           contactCtasHide,
+//           {
+//             opacity: 1,
+//             scale: 1,
+//             height: "auto",
+//             padding: "initial",
+//             margin: "initial",
+//             duration: 0.3,
+//             ease: "power2.out",
+//           },
+//           "-=0.2"
+//         );
+//     },
+//   });
+
+//   gsap.fromTo(
+//     floatingBottom,
+//     { opacity: 0, y: -20 },
+//     {
+//       opacity: 1,
+//       y: 0,
+//       duration: 0.5,
+//       ease: "power2.out",
+//       scrollTrigger: {
+//         trigger: floatingBottom,
+//         start: "top 80%",
+//         toggleActions: "play none none reverse",
+//       },
+//     }
+//   );
+// }
+
+// animateHeroProfile();
 });
