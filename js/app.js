@@ -8,6 +8,8 @@ gsap.ticker.lagSmoothing(0);
 
 
  
+document.addEventListener("DOMContentLoaded", function() {
+
   function handleVideoPreview() {
     const videoPreviews = document.querySelectorAll(".video-preview");
     const startTime = 0;
@@ -251,10 +253,14 @@ gsap.ticker.lagSmoothing(0);
         ease: 'power2.out',
         scrollTrigger: {
           trigger: container,
-          start: 'top 80%',
+          start: 'top 95%',
           toggleActions: 'play none none none',
+          markers: false,
         },
       });
     });
   }
   animateStaggeredSections();
+
+
+});
