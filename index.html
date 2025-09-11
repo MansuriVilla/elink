@@ -11,10 +11,17 @@
     />
   </head>
   <body>
+          <!-- <video autoplay muted loop playsinline preload="auto" class="hero-video">
+              <source
+                src="../assets/entreprener-background-video.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video> -->
     <div class="elink-entreprenuer__container">
       <div class="elink-container__inner">
         <div class="entreprenuer-block__hero">
-          <picture>
+          <picture class="has_parallex">
             <source
               srcset="../assets/entreprener-background.webp"
               type="image/webp"
@@ -22,16 +29,11 @@
             <img
               src="../assets/entreprener-background.webp"
               alt="Share Collins Background Image"
+              
               decoding="async"
             />
+      
           </picture>
-          <!-- <video autoplay muted loop playsinline preload="auto" class="hero-video">
-            <source
-              src="../assets/entreprener-background-video.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video> -->
           <div class="hero-floating__content">
             <div class="floating-content__inner">
               <div class="floating-content__top" data-stagger-container>
@@ -41,7 +43,22 @@
                 </a>
               </div>
               <div class="floating-content__bottom">
+
                 <div class="bottom__inner">
+                   <div class="switcher__filtemnr">
+                    <div class="glass-filter"></div>
+    <div class="glass-overlay"></div>
+    <div class="glass-specular"></div>
+ 
+    <svg style="display: none">
+      <filter id="switcher" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+        <feDisplacementMap in="SourceGraphic" in2="blurred" scale="70" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg> 
+ 
+  </div>
                   <div class="bottom_top" data-stagger-container>
                     <div class="bottom-top__left">
                       <div class="profile_details">
@@ -127,6 +144,97 @@
             </div>
           </div>
         </div>
+        <div class="entreprenuer-block__feed">
+          <div class="interest-content">
+            <div class="interest_top">
+              <h2 class="interest-title">My Feed</h2>
+            </div>
+            <div class="feed_bottom">
+                <div class="feed-feeds" data-stagger-container>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-1.webp"
+                        alt="Feed Image 1"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-2.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-2.webp"
+                        alt="Feed Image 2"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-3.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-3.webp"
+                        alt="Feed Image 3"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-4.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-4.webp"
+                        alt="Feed Image 4"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-5.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-5.webp"
+                        alt="Feed Image 5"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-6.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-6.webp"
+                        alt="Feed Image 6"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        
         <!-- Bio Section -->
         <div class="bio_block-main">
           <div class="bio_block-heading">
@@ -137,34 +245,7 @@
               <div class="bio_block-detail">
                 <div class="bio_block-detail-left" data-stagger-container>
                   <div class="bio_block-detail-left-video">
-                    <div class="dialog-video-popup" id="dialog-video__1">
-                      <div class="popup-content" id="dialog-content__1">
-                        <button class="close-button" id="dialog-close__btn-1">
-                          <svg
-                            width="100%"
-                            height="100%"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M15 9L9 15M9 9L15 15M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-                        <video
-                          class="full-video"
-                          id="dialog-full__video-1"
-                          controls
-                          preload="auto"
-                          data-video-behavior="restart"
-                        ></video>
-                      </div>
-                    </div>
+                 
 
                     <div
                       class="video_block video-preview"
@@ -335,8 +416,126 @@
             </div>
           </div>
         </div>
+        <div class="entreprenuer-block__feed">
+          <div class="interest-content">
+            <div class="interest_top">
+              <h2 class="interest-title">My Feed</h2>
+            </div>
+            <div class="feed_bottom">
+                <div class="feed-feeds" data-stagger-container>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-1.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-1.webp"
+                        alt="Feed Image 1"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-2.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-2.webp"
+                        alt="Feed Image 2"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-3.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-3.webp"
+                        alt="Feed Image 3"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-4.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-4.webp"
+                        alt="Feed Image 4"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-5.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-5.webp"
+                        alt="Feed Image 5"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  
+                  <div class="feed-items">
+                    <picture>
+                      <source
+                        srcset="../assets/feed-image-6.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        src="../assets/feed-image-6.webp"
+                        alt="Feed Image 6"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+       <div class="dialog-video-popup" id="dialog-video__1">
+                      <div class="popup-content" id="dialog-content__1">
+                        <button class="close-button" id="dialog-close__btn-1">
+                          <svg
+                            width="100%"
+                            height="100%"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M15 9L9 15M9 9L15 15M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </button>
+                        <video
+                          class="full-video"
+                          id="dialog-full__video-1"
+                          controls
+                          preload="auto"
+                          data-video-behavior="restart"
+                        ></video>
+                      </div>
+                    </div>
     <script src="./js/lenis.min.js" defer></script>
     <script src="./js/gsap.min.js" defer></script>
     <script src="./js/ScrollTrigger.min.js" defer></script>
