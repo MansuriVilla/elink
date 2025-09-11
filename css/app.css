@@ -87,6 +87,12 @@ h2{
   display: flex;
   justify-content: space-between;
   gap:10px;
+  margin-bottom: 20px;
+  transition: 0.3s all ease;
+}
+
+.floating-content__bottom.sticky-active .bottom_top {
+    margin: 0;
 }
 .bottom-contact__ctas {
   display: flex;
@@ -122,6 +128,7 @@ opacity: 0;
   background: linear-gradient(90deg, #ffffff01, #ffffff80, #ffffff01);
   display: flex;
   left: 50%;
+  z-index: 1;
   transform: translate(-50%, -50%);
   transition: 0.3s all ease;
 }
@@ -382,16 +389,14 @@ img.link-img{
 
 
 
-.bottom__inner { /* background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); */ border-radius: 24px; padding: 24px 32px 16px 16px; display: flex; justify-content: space-between; align-items: center;  flex-direction: column; width: 100%; gap: 20px; position: relative; transition: 0.3s all ease;
+.bottom__inner { /* background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); */ border-radius: 24px; padding: 24px 32px 16px 16px; display: flex; justify-content: space-between; align-items: center;  flex-direction: column; width: 100%; /* gap: 20px; */  position: relative; transition: 0.3s all ease;
 
 
-       position: relative;
 
 
 
 
     background: transparent;
-    border-radius: 2rem;
     overflow: hidden;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
@@ -399,11 +404,11 @@ img.link-img{
  
 }
 .glass-overlay {
-    position: absolute;
+    position: absolute;     
     inset: 0;
     /* z-index: 1; */
-        background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(4px)
+        /* background: rgba(255, 255, 255, 0.1); */
+    /* backdrop-filter: blur(4px) */
  ;
 }
  
@@ -422,10 +427,17 @@ img.link-img{
 .glass-specular {
     position: absolute;
     inset: 0;
-    z-index: 2;
-    border-radius: inherit;
+    /* z-index: 2; */
+    border-radius: 24px;
     overflow: hidden;
+    backdrop-filter: blur(30px);
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
  
+.floating-content__bottom.sticky-active .glass-specular
+
+ {
+       backdrop-filter: blur(5px);
+    border-radius: 15px;
+}
 
