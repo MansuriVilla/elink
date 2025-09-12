@@ -78,7 +78,7 @@ h2{
   .statistics-inner { display: flex; text-align: center; gap: 20px; } 
   .statistics_subtext { font-size: 10px; }
   .statistics_text { font-size: 14px;  font-weight: 600; line-height: 14px; }
-  .bottom-top__left { flex: none; }
+  .bottom-top__left { flex: none; display: flex; }
 
   .contact-ctas {
   display: flex;
@@ -118,11 +118,16 @@ h2{
        flex: fit-content;
        gap: 10px;
 }
-.contact-ctas .cta:first-child {
+.contact-ctas .cta:first-child:not(.contact-ctas.on__header .cta:first-child) {
   flex: 55%;
 }
+
+.bottom-top__right {
+  display: flex;
+  align-items: center;
+}
 /* Initially hide has_effect_on-scroll elements */
-/* .contact-ctas.on__header.has_effect_on-scroll { height: 0; opacity: 0; transform: scale(0); padding: 0; margin: 0; transition: all 0.3s ease; } */
+.contact-ctas.on__header.has_effect_on-scroll { height: 0; opacity: 0; /* transform: scale(0);  */padding: 0; margin: 0; transition: all 0.3s ease; }
 
 .floating-content__bottom.sticky-active .bottom__inner::before {
 opacity: 0;
@@ -449,3 +454,52 @@ img.link-img{
     border-radius: 15px;
 }
 
+
+
+
+.filterBorder::before {
+  content: "";
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  filter: brightness(1.35);
+  background-image: conic-gradient( rgba(0, 0, 0, 0), #3d3a4f, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 50%, #3d3a4f, rgba(0, 0, 0, 0) 100% );
+  animation: rotate 4s linear infinite;
+}
+
+
+.filterBorder {
+  height: 42px;
+  width: 40px;
+  position: absolute;
+  overflow: hidden;
+  top: 7px;
+  right: 7px;
+  border-radius: 10px;
+}
+
+
+#filter-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  max-height: 40px;
+  max-width: 38px;
+  height: 100%;
+  width: 100%;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #161329, black, #1d1b4b);
+  border: 1px solid transparent;
+}

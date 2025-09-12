@@ -353,7 +353,7 @@ function animateHeroProfile() {
 }
 
 // Call the function
-animateHeroProfile();
+// animateHeroProfile();
 
 
 function parallexHero() {
@@ -458,6 +458,7 @@ parallexHero();
 
 
 // function animateHeroProfile() {
+
 //   gsap.registerPlugin(ScrollTrigger);
 
 //   const floatingBottom = document.querySelector(".floating-content__bottom");
@@ -618,4 +619,319 @@ parallexHero();
 // }
 
 // animateHeroProfile();
+
+
+
+
+
+
+
+
+// function animateHeroProfile() {
+//   gsap.registerPlugin(ScrollTrigger);
+
+//   const floatingBottom = document.querySelector(".floating-content__bottom");
+//   const contactCtasHide = document.querySelector(".has_effect");
+//   const contactCtasLinksHide = document.querySelectorAll(".has_effect .has_effect_item");
+//   const contactCtasShow = document.querySelector(".has_effect_on-scroll");
+//   const contactCtasLinksShow = document.querySelectorAll(".has_effect_on-scroll .has_effect_item");
+
+//   // Initial state for the show elements
+//   gsap.set(contactCtasShow, { opacity: 0, height: 0, padding: 0, margin: 0 });
+//   gsap.set(contactCtasLinksShow, { scale: 0, opacity: 0, y: 20 });
+
+//   ScrollTrigger.create({
+//     trigger: floatingBottom,
+//     start: "top 1%",
+//     end: "+=2000",
+//     pin: true,
+//     pinSpacing: false,
+//     onEnter: () => {
+//       floatingBottom.classList.add("sticky-active");
+
+//       const tl = gsap.timeline();
+//       tl.to(contactCtasLinksHide, {
+//         y: 20,
+//         scale: 0,
+//         opacity: 0,
+//         duration: 0.3,
+//         stagger: { each: 0.05, from: "end" },
+//         ease: "power2.in",
+//       })
+//       .to(
+//         contactCtasHide,
+//         {
+//           opacity: 0,
+//           height: 0,
+//           padding: 0,
+//           margin: 0,
+//           duration: 0.3,
+//           ease: "power2.out",
+//         },
+//         "-=0.2"
+//       )
+//       .fromTo(
+//         contactCtasShow,
+//         {
+//           opacity: 0,
+//           height: 0,
+//           padding: 0,
+//           margin: 0,
+//         },
+//         {
+//           opacity: 1,
+//           height: "auto",
+//           padding: "initial",
+//           margin: "initial",
+//           duration: 0.3,
+//           ease: "power2.out",
+//         },
+//         "-=0.2"
+//       )
+//       .fromTo(
+//         contactCtasLinksShow,
+//         {
+//           y: 20,
+//           scale: 0,
+//           opacity: 0,
+//         },
+//         {
+//           y: 0,
+//           scale: 1,
+//           opacity: 1,
+//           duration: 0.3,
+//           stagger: { each: 0.05, from: "end" },
+//           ease: "power2.out",
+//         },
+//         "-=0.1"
+//       );
+//     },
+//     onLeaveBack: () => {
+//       floatingBottom.classList.remove("sticky-active");
+
+//       const tl = gsap.timeline();
+//       tl.to(contactCtasLinksShow, {
+//         y: 20,
+//         scale: 0,
+//         opacity: 0,
+//         duration: 0.3,
+//         stagger: { each: 0.05, from: "end" },
+//         ease: "power2.in",
+//       })
+//       .to(
+//         contactCtasShow,
+//         {
+//           opacity: 0,
+//           height: 0,
+//           padding: 0,
+//           margin: 0,
+//           duration: 0.3,
+//           ease: "power2.out",
+//         },
+//         "-=0.2"
+//       )
+//       .fromTo(
+//         contactCtasHide,
+//         {
+//           opacity: 0,
+//           height: 0,
+//           padding: 0,
+//           margin: 0,
+//         },
+//         {
+//           opacity: 1,
+//           height: "auto",
+//           padding: "initial",
+//           margin: "initial",
+//           duration: 0.3,
+//           ease: "power2.out",
+//         },
+//         "-=0.2"
+//       )
+//       .fromTo(
+//         contactCtasLinksHide,
+//         {
+//           y: 20,
+//           scale: 0,
+//           opacity: 0,
+//         },
+//         {
+//           y: 0,
+//           scale: 1,
+//           opacity: 1,
+//           duration: 0.3,
+//           stagger: { each: 0.05, from: "end" },
+//           ease: "power2.out",
+//         },
+//         "-=0.1"
+//       );
+//     },
+//   });
+
+//   gsap.fromTo(
+//     floatingBottom,
+//     { opacity: 0, y: -20 },
+//     {
+//       opacity: 1,
+//       y: 0,
+//       duration: 0.5,
+//       ease: "power2.out",
+//       scrollTrigger: {
+//         trigger: floatingBottom,
+//         start: "top 80%",
+//         toggleActions: "play none none reverse",
+//       },
+//     }
+//   );
+// }
+
+// animateHeroProfile();
+
+
+function animateHeroProfile() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const floatingBottom = document.querySelector(".floating-content__bottom");
+
+  // Select both the statistics and contact elements to hide
+  const contactCtasHide = document.querySelectorAll(".statistics-inner.has_effect, .bottom-contact__ctas .has_effect");
+  const contactCtasLinksHide = document.querySelectorAll(".statistics-inner .has_effect_item, .bottom-contact__ctas .has_effect .has_effect_item");
+
+  const contactCtasShow = document.querySelector(".on__header.has_effect_on-scroll");
+  const contactCtasLinksShow = document.querySelectorAll(".on__header.has_effect_on-scroll .has_effect_item");
+
+  // Initial state setup: Ensure the elements to show are hidden on page load.
+  gsap.set(contactCtasShow, { opacity: 0, height: 0, padding: 0, margin: 0 });
+  gsap.set(contactCtasLinksShow, { y: 20, scale: 0, opacity: 0 });
+
+  ScrollTrigger.create({
+    trigger: floatingBottom,
+    start: "top 1%",
+    end: "+=2000",
+    pin: true,
+    pinSpacing: false,
+    onEnter: () => {
+      floatingBottom.classList.add("sticky-active");
+
+      const tl = gsap.timeline();
+      // Animate the hiding of the original elements
+      tl.to(contactCtasLinksHide, {
+        y: 20,
+        scale: 0,
+        opacity: 0,
+        duration: 0.3,
+        stagger: { each: 0.05, from: "end" },
+        ease: "power2.in",
+      })
+      .to(
+        contactCtasHide,
+        {
+          opacity: 0,
+          height: 0,
+          padding: 0,
+          margin: 0,
+          duration: 0.3,
+          ease: "power2.out",
+          overflow: 'hidden'
+        },
+        "-=0.2"
+      )
+      // Animate the showing of the new elements
+      .to(
+        contactCtasShow,
+        {
+          opacity: 1,
+          height: "auto",
+          padding: "initial",
+          margin: "initial",
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      )
+      .to(
+        contactCtasLinksShow,
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 0.3,
+          stagger: { each: 0.05, from: "end" },
+          ease: "power2.out",
+        },
+        "<"
+      );
+    },
+    onLeaveBack: () => {
+      floatingBottom.classList.remove("sticky-active");
+
+      const tl = gsap.timeline();
+      // Animate the hiding of the new elements
+      tl.to(contactCtasLinksShow, {
+        y: 20,
+        scale: 0,
+        opacity: 0,
+        duration: 0.3,
+        stagger: { each: 0.05, from: "end" },
+        ease: "power2.in",
+      })
+      .to(
+        contactCtasShow,
+        {
+          opacity: 0,
+          height: 0,
+          padding: 0,
+          margin: 0,
+          duration: 0.3,
+          ease: "power2.out",
+          overflow: 'hidden'
+        },
+        "-=0.2"
+      )
+      // Animate the showing of the original elements
+      .to(
+        contactCtasHide,
+        {
+          opacity: 1,
+          height: "auto",
+          padding: "initial",
+          margin: "initial",
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        "-=0.2"
+      )
+      .to(
+        contactCtasLinksHide,
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 0.3,
+          stagger: { each: 0.05, from: "end" },
+          ease: "power2.out",
+        },
+        "<"
+      );
+    },
+  });
+
+  gsap.fromTo(
+    floatingBottom,
+    { opacity: 0, y: -20 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: floatingBottom,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
+}
+
+animateHeroProfile();
 });
