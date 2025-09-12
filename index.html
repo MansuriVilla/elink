@@ -194,6 +194,7 @@
               <h2 class="interest-title">My Feed</h2>
             </div>
             <div class="feed_bottom">
+
               <div class="feed-feeds" data-stagger-container>
                 <div class="feed-items">
                   <picture>
@@ -283,7 +284,44 @@
             <h2>Bio</h2>
           </div>
           <div class="bio_block-info glass-card">
-            <div class="bio_block-info-effect filterBorder ">
+            <div class="bio_block-info-effect  ">
+                             <div class="switcher__filtemnr">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular">
+                       <div class="glass-specular__shadow"></div> 
+                    </div>
+
+                    <svg style="display: none">
+                      <filter
+                        id="switcher"
+                        x="0%"
+                        y="0%"
+                        width="100%"
+                        height="100%"
+                      >
+                        <feTurbulence
+                          type="fractalNoise"
+                          baseFrequency="0.008 0.008"
+                          numOctaves="2"
+                          seed="92"
+                          result="noise"
+                        />
+                        <feGaussianBlur
+                          in="noise"
+                          stdDeviation="2"
+                          result="blurred"
+                        />
+                        <feDisplacementMap
+                          in="SourceGraphic"
+                          in2="blurred"
+                          scale="70"
+                          xChannelSelector="R"
+                          yChannelSelector="G"
+                        />
+                      </filter>
+                    </svg>
+                  </div>
               <div class="bio_block-detail">
                 <div class="bio_block-detail-left" data-stagger-container>
                   <div class="bio_block-detail-left-video">
@@ -359,7 +397,42 @@
             <div class="interest_top">
               <h2 class="interest-title">Interests</h2>
             </div>
-            <div class="interest_bottom filterBorder">
+            <div class="interest_bottom">
+               <div class="switcher__filtemnr">
+                    <div class="glass-filter"></div>
+                    <div class="glass-overlay"></div>
+                    <div class="glass-specular"></div>
+
+                    <svg style="display: none">
+                      <filter
+                        id="switcher"
+                        x="0%"
+                        y="0%"
+                        width="100%"
+                        height="100%"
+                      >
+                        <feTurbulence
+                          type="fractalNoise"
+                          baseFrequency="0.008 0.008"
+                          numOctaves="2"
+                          seed="92"
+                          result="noise"
+                        />
+                        <feGaussianBlur
+                          in="noise"
+                          stdDeviation="2"
+                          result="blurred"
+                        />
+                        <feDisplacementMap
+                          in="SourceGraphic"
+                          in2="blurred"
+                          scale="70"
+                          xChannelSelector="R"
+                          yChannelSelector="G"
+                        />
+                      </filter>
+                    </svg>
+                  </div>
               <ul
                 class="site_flex flex-wrap interest-list"
                 data-stagger-container

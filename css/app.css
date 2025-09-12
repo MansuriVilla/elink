@@ -211,7 +211,7 @@ body.dialog-box__open { overflow: hidden; }
        display: flex;
        gap: 20px;
   
-       background-color: #0D0D0D;
+       /* background-color: #0D0D0D; */
        padding: 20px;
        /* border-radius: 15px; */
        /* border: 1px solid #FFFFFF40; */
@@ -253,6 +253,10 @@ body.dialog-box__open { overflow: hidden; }
 .bio_block-detail-right-bottom a span{
        font-size: clamp(12px,1vw,14px);
        color:  #FFFFFF50;
+       transition: 0.3s all ease;
+}
+.bio_block-detail-right-bottom a span:hover{
+  color: #ffffff;
 }
  
  
@@ -270,7 +274,7 @@ img.link-img{
   top: -10px;
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, #ffffff01, #ffffff80, #ffffff01);
+  background: linear-gradient(90deg, #ffffff01, #ffffff18, #ffffff01);
   display: flex;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -299,9 +303,20 @@ img.link-img{
   border-radius: 15px;
   padding: 1px;
 }
+
+
+.interest_bottom .glass-specular, .bio_block-detail .glass-specular  {
+  border-radius: 15px;
+   /* box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 25%), inset 0 0 5px rgba(255, 255, 255, 25%); */
+}
+
+
+
+
 .interest_bottom ul {
   
-  background-color: #0D0D0D;
+  /* background-color: #0D0D0D; */
+  background-color: #ffffff05;
   padding: 20px;
   /* border-radius: 15px;
   overflow: hidden; */
@@ -415,7 +430,7 @@ img.link-img{
     overflow: hidden;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 25%), inset 0 0 5px rgba(255, 255, 255, 25%);
 }
  
 .floating-content__bottom.sticky-active .glass-specular
@@ -429,6 +444,7 @@ img.link-img{
 
 
 
+.follow-cta.staggered-item-active.filterBorder::before  {  animation: rotate 4s linear;}
 .filterBorder::before {
   content: "";
   text-align: center;
@@ -443,7 +459,7 @@ img.link-img{
   background-position: 0 0;
   filter: brightness(1.35);
   background-image: conic-gradient( rgba(0, 0, 0, 0), #ffffff50, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 50%, #ffffff50, rgba(0, 0, 0, 0) 100% );
-  animation: rotate 4s linear;
+
 }
 
 

@@ -5,6 +5,39 @@ gsap.ticker.add((time) => {
 });
 gsap.ticker.lagSmoothing(0);
 
+// document.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+// });
+
+// const blockedKeys = [
+//   "i",
+//   "j",
+//   "c",
+//   "k",
+//   "m",
+//   "s",
+//   "t",
+//   "u",
+//   "v",
+//   "w",
+//   "x",
+//   "y",
+//   "z",
+// ];
+
+// document.addEventListener("keydown", (e) => {
+//   const key = e.key.toLowerCase();
+//   if (
+//     e.key === "F12" ||
+//     (e.ctrlKey && key === "u") ||
+//     (e.ctrlKey && key === "s") ||
+//     (e.ctrlKey && e.shiftKey && blockedKeys.includes(key)) ||
+//     (e.metaKey && e.altKey && blockedKeys.includes(key))
+//   ) {
+//     e.preventDefault();
+//   }
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
   function handleVideoPreview() {
     const videoPreviews = document.querySelectorAll(".video-preview");
@@ -235,125 +268,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   handleVideoPreview();
 
-  function animateStaggeredSections() {
-    const containers = document.querySelectorAll("[data-stagger-container]");
+function animateStaggeredSections() {
+  const containers = document.querySelectorAll("[data-stagger-container]");
 
-    containers.forEach((container) => {
-      gsap.from(container.children, {
-        opacity: 0,
-        y: 20,
-        stagger: 0.08,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: container,
-          start: "top 95%",
-          toggleActions: "play none none none",
-          markers: false,
-        },
-      });
-    });
-  }
-  animateStaggeredSections();
-
-
-function animateHeroProfile() {
-  gsap.registerPlugin(ScrollTrigger);
-
-  const floatingBottom = document.querySelector(".floating-content__bottom");
-  const bottomInner = document.querySelector(".bottom__inner");
-  const bottomTop = document.querySelector(".bottom_top");
-  const contactCtas = document.querySelector(".contact-ctas");
-  const contactCtasLinks = document.querySelectorAll(".contact-ctas a");
-
-  // Pin the element when it reaches the top
-  ScrollTrigger.create({
-    trigger: floatingBottom,
-    start: "top 1%",
-    end: "+=2000",
-    pin: true,
-    pinSpacing: false,
-    onEnter: () => {
-      floatingBottom.classList.add("sticky-active");
-
-      const tl = gsap.timeline();
-      tl.to(contactCtasLinks, {
-        y: 20,
-        scale: 0,
-        opacity: 0,
-        duration: 0.3,
-        stagger: {
-          each: 0.05,
-          from: "end",
-        },
-        ease: "power2.in",
-      }).to(
-        contactCtas,
-        {
-          height: 0,
-          padding: 0,
-          margin: 0,
-          duration: 0.3,
-          ease: "power2.out",
-          onComplete: () => {
-            contactCtas.style.display = "none";
-            setTimeout(() => {
-              contactCtas.style.display = "";
-            }, 0);
-          },
-        },
-        "-=0.2"
-      );
-    },
-    onLeaveBack: () => {
-      floatingBottom.classList.remove("sticky-active");
-
-      const tl = gsap.timeline();
-      tl.to(contactCtas, {
-        height: "auto",
-        padding: "initial",
-        margin: "initial",
-        duration: 0.3,
-        ease: "power2.out",
-        onStart: () => {
-          contactCtas.style.display = "";
-        },
-      }).to(
-        contactCtasLinks,
-        {
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 0.3,
-          stagger: {
-            each: 0.05,
-            from: "end",
-          },
-          ease: "power2.out",
-        },
-        "-=0.2"
-      );
-    },
-  });
-
-  gsap.fromTo(
-    floatingBottom,
-    { opacity: 0, y: -20 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
+  containers.forEach((container) => {
+    gsap.from(container.children, {
+      opacity: 0,
+      y: 20,
+      stagger: 0.08,
       ease: "power2.out",
       scrollTrigger: {
-        trigger: floatingBottom,
-        start: "top 80%",
-        toggleActions: "play none none reverse",
+        trigger: container,
+        start: "top 95%",
+        toggleActions: "play none none none",
+        markers: false,
       },
-    }
-  );
+      onStart: function () {
+        // Add class to the current animating element
+        this.targets().forEach((element) => {
+          element.classList.add("staggered-item-active");
+        });
+      },
+    });
+  });
 }
-
-// Call the function
-// animateHeroProfile();
+animateStaggeredSections();
 
 
 function parallexHero() {
