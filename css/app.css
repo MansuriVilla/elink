@@ -301,6 +301,9 @@ img.link-img{
 .follow-cta {
   flex: 45%;
   font-size: 12px;
+  position: relative;
+  overflow: hidden;
+  padding: 1px;
 }
 .cta.cta__follow {
   padding-top: 12px;
@@ -330,50 +333,7 @@ img.link-img{
   object-position: center center;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.32);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 0 22px 11px rgba(255, 255, 255, 1.1);
-  position: relative;
-  overflow: hidden;
-}
- 
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.8),
-    transparent
-  );
-}
- 
-.glass-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.8),
-    transparent,
-    rgba(255, 255, 255, 0.3)
-  );
-}
+
  
 
 .follow-cta.glass-card {
@@ -428,8 +388,6 @@ img.link-img{
     position: absolute;
     inset: 0;
     z-index: 0;
-    /* backdrop-filter: blur(50px); */
-    /* -webkit-backdrop-filter: blur(50px); */
     filter: url(#switcher);
     isolation: isolate;
 }
@@ -438,7 +396,6 @@ img.link-img{
 .glass-specular {
     position: absolute;
     inset: 0;
-    /* z-index: 2; */
     border-radius: 24px;
     overflow: hidden;
     backdrop-filter: blur(30px);
@@ -462,44 +419,23 @@ img.link-img{
   text-align: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%);
   position: absolute;
   width: 600px;
   height: 600px;
   background-repeat: no-repeat;
   background-position: 0 0;
   filter: brightness(1.35);
-  background-image: conic-gradient( rgba(0, 0, 0, 0), #3d3a4f, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 50%, #3d3a4f, rgba(0, 0, 0, 0) 100% );
-  animation: rotate 4s linear infinite;
+  background-image: conic-gradient( rgba(0, 0, 0, 0), #ffffff50, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 50%, #ffffff50, rgba(0, 0, 0, 0) 100% );
+  animation: rotate 4s linear;
 }
 
 
-.filterBorder {
-  height: 42px;
-  width: 40px;
-  position: absolute;
-  overflow: hidden;
-  top: 7px;
-  right: 7px;
-  border-radius: 10px;
+
+
+
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
 }
-
-
-#filter-icon {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  max-height: 40px;
-  max-width: 38px;
-  height: 100%;
-  width: 100%;
-  isolation: isolate;
-  overflow: hidden;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #161329, black, #1d1b4b);
-  border: 1px solid transparent;
 }
