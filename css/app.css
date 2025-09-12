@@ -62,7 +62,7 @@ body.browser-chrome.device-mobile .statistics-inner{gap: 12px; justify-content: 
 }
   .elink-entreprenuer__container { max-width: 455px; width: 100%; margin: 0 auto; }
   .entreprenuer-block__hero { position: relative;  border-radius: 0 0 24px 24px; /* overflow: hidden; */}
-  .entreprenuer-block__hero :is(img, video) { width: 100%; height: 100%; object-fit: cover; object-position: center center; scale: 1.20; }
+  .entreprenuer-block__hero .hero__bg :is(img, video) { width: 100%; height: 100%; object-fit: cover; object-position: center center; scale: 1.20; }
 
   .hero__bg {
   overflow: hidden;
@@ -75,16 +75,23 @@ body.browser-chrome.device-mobile .statistics-inner{gap: 12px; justify-content: 
   display: flex;
   flex-direction: column;  }
   .floating-content__bottom.sticky-active .bottom__inner {
-  padding: 20px;gap: 0px; transition-delay: 0.3s; border-radius: 15px; }
-  /* .floating-content__bottom {background: linear-gradient(90deg, #ffffff50, #ffffff20); border-radius: 24px; transition: opacity 0.3s ease, transform 0.3s ease; height: fit-content !important;} */
-  
+    padding: 15px;gap: 0px; transition-delay: 0.3s; border-radius: 10px; }
+    .floating-content__bottom.sticky-active .bottom__inner .cta {border-radius: 12px;}
+    /* .floating-content__bottom {background: linear-gradient(90deg, #ffffff50, #ffffff20); border-radius: 24px; transition: opacity 0.3s ease, transform 0.3s ease; height: fit-content !important;} */
+  .name_text {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+max-width: 120px;
+  overflow: hidden;
+  width: 100%;
+}
   .bottom-content__left { display: flex; }
   .profile_details { display: flex; align-items: center; gap: 4px; }
   .profile-image { background: linear-gradient(90deg, #26B7FF, #1D4AFE); padding: 5px;border-radius: 50px; overflow: hidden; }
   .profile-image img { border-radius: 50px; overflow: hidden; height: 24px; width: 24px; }
   .profile-name { font-size: 16px;  display: flex; align-items: center;   gap: 4px; }
   .profile-role { font-size: 10px; color: #FFFFFF60; }
-  .statistics-inner { display: flex; text-align: center; gap: 20px; } 
+  .statistics-inner { display: flex; text-align: center; justify-content: space-between; } 
   .statistics_subtext { font-size: 10px; }
   .statistics_text { font-size: 14px;  font-weight: 600; line-height: 14px; }
   .bottom-top__left { flex: none; display: flex; }
