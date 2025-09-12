@@ -5,6 +5,41 @@ gsap.ticker.add((time) => {
 });
 gsap.ticker.lagSmoothing(0);
 
+    function addUserAgentClass() {
+  const userAgent = navigator.userAgent.toLowerCase();
+  const body = document.body;
+if (!document.body) {
+  console.warn("Body not available yet");
+  return;
+}
+  // Browser detection
+  if (userAgent.includes("firefox")) {
+    body.classList.add("browser-firefox");
+  } else if (userAgent.includes("chrome") && !userAgent.includes("edg")) {
+    body.classList.add("browser-chrome");
+  } else if (userAgent.includes("safari") && !userAgent.includes("chrome")) {
+    body.classList.add("browser-safari");
+  } else if (userAgent.includes("edg")) {
+    body.classList.add("browser-edge");
+  } else if (userAgent.includes("opr") || userAgent.includes("opera")) {
+    body.classList.add("browser-opera");
+  } else {
+    body.classList.add("browser-unknown");
+  }
+
+  // Device detection
+  if (/mobile|android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)) {
+    body.classList.add("device-mobile");
+  } else {
+    body.classList.add("device-desktop");
+  }
+}
+
+// Run the function immediately
+addUserAgentClass();
+
+
+
 // document.addEventListener("contextmenu", (e) => {
 //   e.preventDefault();
 // });
