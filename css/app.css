@@ -49,7 +49,7 @@ h2{
 
 
 body.browser-chrome.device-mobile .profile-name{font-size: 14px;}
-body.browser-chrome.device-mobile .statistics-inner{gap: 12px;}
+body.browser-chrome.device-mobile .statistics-inner{gap: 12px; justify-content: space-between;}
 
 /*---------------------------
   Hero Block Styles
@@ -355,7 +355,7 @@ img.link-img{
 
 .feed-feeds {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(100px,7vw,120px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(clamp(110px,7vw,120px), 1fr));
   gap: 5px;
 }
 
